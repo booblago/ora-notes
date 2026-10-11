@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ora — Capture thoughts, speak or type</title>
+  <meta name="description" content="Ora is a calm notes app with voice capture. Pin what matters, search instantly, keep everything on your device." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="atmosphere" aria-hidden="true"></div>
+
+  <div class="app">
+    <header class="top">
+      <div class="brand-block">
+        <p class="brand">Ora</p>
+        <p class="tagline">Capture a thought before it slips away.</p>
+      </div>
+      <div class="top-actions">
+        <label class="search">
+          <span class="sr-only">Search notes</span>
+          <input id="searchInput" type="search" placeholder="Search notes…" autocomplete="off" />
+        </label>
+        <button type="button" class="btn primary" id="newNoteBtn">New note</button>
+      </div>
+    </header>
+
+    <main class="workspace">
+      <aside class="sidebar">
+        <div class="sidebar-head">
+          <h2>Your notes</h2>
+          <span id="noteCount" class="count">0</span>
+        </div>
+        <ul id="notesList" class="notes-list" aria-label="Notes list"></ul>
+        <div id="emptyState" class="empty hidden">
+          <p class="empty-title">Nothing here yet</p>
+          <p class="empty-text">Write a note or tap the mic and speak. Ora keeps it on this device.</p>
+          <button type="button" class="btn primary" id="emptyNewBtn">Start first note</button>
+        </div>
+      </aside>
+
+      <section class="editor" aria-label="Note editor">
+        <div id="editorEmpty" class="editor-empty">
+          <p class="brand-mark">Ora</p>
+          <p>Select a note or create a new one.</p>
+        </div>
+
+        <div id="editorPanel" class="editor-panel hidden">
+          <div class="editor-toolbar">
+            <button type="button" class="icon-btn" id="pinBtn" title="Pin note" aria-pressed="false">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 3.5 20.5 9.5 16 14l.5 6.5-3.5-2.5-3.5 2.5L10 14 5.5 9.5 11.5 3.5 14.5 3.5z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+              <span>Pin</span>
+            </button>
+            <button type="button" class="icon-btn mic" id="micBtn" title="Dictate">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a3 3 0 0 1 3 3v6a3 3 0 0 1-6 0V6a3 3 0 0 1 3-3zm-7 9a7 7 0 0 0 14 0M12 19v2" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+              <span id="micLabel">Speak</span>
+            </button>
+            <button type="button" class="icon-btn danger" id="deleteBtn" title="Delete note">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 7h14M10 7V5h4v2m-5 3v8m4-8v8M7 7l1 12a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2l1-12" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>Delete</span>
+            </button>
+            <span id="saveStatus" class="save-status" aria-live="polite"></span>
+          </div>
+
+          <input id="titleInput" class="title-input" type="text" placeholder="Title" maxlength="120" />
+          <textarea id="bodyInput" class="body-input" placeholder="Write freely… or tap Speak and dictate." rows="12"></textarea>
+          <p id="voiceHint" class="voice-hint"></p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
