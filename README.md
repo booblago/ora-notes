@@ -1,5 +1,7 @@
 # Ora
 
+**Live demo:** [https://ora-notes.vercel.app](https://ora-notes.vercel.app)
+
 **Ora** is a calm, lightweight notes app with voice capture. Write freely, pin what matters, search instantly — everything stays on your device.
 
 ## Why Ora
